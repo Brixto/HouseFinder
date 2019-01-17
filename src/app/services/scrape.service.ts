@@ -6,7 +6,7 @@ import * as pup from "puppeteer";
 })
 export class ScrapeService {
 
-  public async getQuokaList() {
+  public async loadQuokaList() {
     const browser = await pup.launch()
     const page = await browser.newPage()
     await page.goto('https://www.quoka.de/')

@@ -6,7 +6,7 @@ import * as pup from "puppeteer";
 })
 export class ScrapeService {
 
-  public async loadQuokaList() {
+  public async loadQuokaList(): Promise<string[]> {
     const browser = await pup.launch()
     const page = await browser.newPage()
     await page.goto('https://www.quoka.de/')
@@ -24,10 +24,12 @@ export class ScrapeService {
 
     await page.waitForNavigation()
 
-    await page.evaluate(() =>
+    const result = await page.evaluate(() =>
       Array.from(document.querySelectorAll('div.q-col div.description'))
         .map(x => x.innerHTML.trim()))
 
     await browser.close()
+
+    return result;
   }
 }

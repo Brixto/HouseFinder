@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import * as pup from "puppeteer";
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ScrapeService {
 
+  private _url = 'http://localhost:3000/quoka';
 
+  constructor(private _http: HttpClient) { }
+
+  public quoka() {
+    return this._http.get<string[]>(this._url);
+  }
 }

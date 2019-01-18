@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "is",
+      "prefix": "hf",
       "schematics": {},
       "architect": {
         "build": {
